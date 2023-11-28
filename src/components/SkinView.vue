@@ -140,15 +140,24 @@ function debounce(func, wait) {
 .skin-container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
 }
 
 .skin-item {
   margin: 5px;
   margin-top: 20px;
+  flex: 0 0 calc(50% - 10px); /* Each item takes 50% width on larger screens */
 }
 
 img:hover {
   transition: transform 0.3s ease;
   transform: scale(1.05);
+}
+
+/* Media query for smaller screens (e.g., mobile) */
+@media (max-width: 768px) {
+  .skin-item {
+    flex: 0 0 100%; /* Each item takes 100% width on small screens, stacking them */
+  }
 }
 </style>
