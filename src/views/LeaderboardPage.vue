@@ -32,7 +32,7 @@ export default {
     async fetchLeaderboard() {
       try {
         console.log("here")
-        const response = await axios.get('http://localhost:8081/api/v1/skin/Leaderboard');
+        const response = await axios.get(`${process.env.VUE_APP_API_URL}api/v1/skin/Leaderboard`);
         this.leaderboard = response.data.reverse();
         console.log(this.leaderboard)
       } catch (error) {

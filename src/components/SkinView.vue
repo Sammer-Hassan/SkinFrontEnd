@@ -78,11 +78,11 @@ export default {
     fetchRandomSkins() {
       this.loading = true;
 
-      axios.get("http://localhost:8081/api/v1/skin")
+      axios.get(`${process.env.VUE_APP_API_URL}api/v1/skin`)
         .then(response => {
           this.skins.push(response.data);
 
-          return axios.get("http://localhost:8081/api/v1/skin");
+          return axios.get(`${process.env.VUE_APP_API_URL}api/v1/skin`);
         })
         .then(response2 => {
           this.skins.push(response2.data);
@@ -105,7 +105,7 @@ export default {
 
       const longValues = [selectedSkinId, otherSkinId];
 
-      axios.post("http://localhost:8081/api/v1/skin/UpdateElo", longValues, {
+      axios.post(`${process.env.VUE_APP_API_URL}api/v1/skin/UpdateElo`, longValues, {
         headers: {
           'Content-Type': 'application/json'
         }
