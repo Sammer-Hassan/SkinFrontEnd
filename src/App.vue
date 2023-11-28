@@ -18,6 +18,7 @@
           <router-link to="/About" class="nav-link">About</router-link>
         </li>
         <li class="nav-iten">
+          <audio ref="audio" :src="require('@/assets/audio/music.mp3')" loop></audio>
           <input style="margin-left:5px" type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
           <label style="margin-left:5px"  @click="toggleAudio" class="btn btn-outline-secondary" for="btn-check-outlined">Music?</label><br>
 
@@ -31,8 +32,6 @@
   <router-view style="background-color: #2c3e50;"/>
 
 </div>
-
-    <audio ref="audio" :src="require('@/assets/audio/music.mp3')" loop></audio>
 
 
 </template>

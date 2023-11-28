@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="border:black 1px solid">
     <h1 style="color: rgb(240, 240, 240); text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Leaderboard</h1>
     <div v-if="loading">Loading...</div>
     <div v-else>
@@ -75,7 +75,7 @@ export default {
 }
 
 .image {
-  max-width: 400px; /* Adjust the width as needed */
-  max-height: 400px; /* Adjust the height as needed */
+  max-width: 80%; /* Adjust the width as needed */
+  max-height: 80%; /* Adjust the height as needed */
 }
 </style>
