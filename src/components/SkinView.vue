@@ -1,6 +1,8 @@
 <template>
   <div>
     <h3 style="margin-top: 50px; color: rgb(240, 240, 240); text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Which do you rank higher?</h3>
+    <h5 style="margin-top: 50px; color: rgb(240, 240, 240); text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Global Votes: {{this.counter.count}}</h5>
+
     <div v-if="loading">Loading...</div>
     <div v-else>
       <div class="skin-container">
@@ -37,6 +39,7 @@ export default {
       loading: true,
       skins: [],
       debounceLoading: false,
+      counter: 0,
       prompts: [
         "Good choice",
         "You are actually trolling",
@@ -73,8 +76,18 @@ export default {
   },
   mounted() {
     this.fetchRandomSkins();
+    this.fetchCounter();
   },
   methods: {
+    async fetchCounter() {
+  try {
+    const response = await axios.get(`${process.env.VUE_APP_API_URL}api/v1/skin/Counter`);
+    this.counter = response.data;
+    console.log(this.counter);
+  } catch (error) {
+    console.error(error);
+  }
+},
     fetchRandomSkins() {
       this.loading = true;
 
@@ -118,6 +131,7 @@ export default {
           console.error(error);
         })
         .finally(() => {
+          this.fetchCounter();
           this.debounceLoading = false;
         });
     }, 1000),
