@@ -11,9 +11,9 @@
           <figure class="figure">
             <img
               :src="getSkinImageUrl(skin.id)"
-              alt="Skin Image"
+              alt="{{skin.name}} Image"
               @click="handleSkinClick(index)"
-              style="cursor: pointer; width: 600px; height: 300px; object-fit: cover; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"
+              class="image"
             />
           </figure>
         </div>
@@ -166,13 +166,21 @@ img:hover {
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   transform: scale(1.05);
 }
+.image{
+  cursor: pointer;
+   width: 800px; 
+   height: 450px; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
 
 
-/* Media query for smaller screens (e.g., mobile) */
-@media (max-width: 768px) {
+@media (max-width: 1300px) {
   .skin-item {
     flex: 0 0 100%; /* Each item takes 100% width on small screens, stacking them */
+
+  }
+  .image{
     height:90%;
     width:90%;
   }
