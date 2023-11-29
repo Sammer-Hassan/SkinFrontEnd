@@ -13,7 +13,7 @@
               :src="getSkinImageUrl(skin.id)"
               alt="Skin Image"
               @click="handleSkinClick(index)"
-              style="cursor: pointer; width: 90%; height: 90%; object-fit: cover; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"
+              style="cursor: pointer; width: 600px; height: 300px; object-fit: cover; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"
             />
           </figure>
         </div>
@@ -162,16 +162,19 @@ function debounce(func, wait) {
   margin-top: 20px;
   flex: 0 0 calc(50% - 10px); /* Each item takes 50% width on larger screens */
 }
-
 img:hover {
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
   transform: scale(1.05);
 }
+
+
 
 /* Media query for smaller screens (e.g., mobile) */
 @media (max-width: 768px) {
   .skin-item {
     flex: 0 0 100%; /* Each item takes 100% width on small screens, stacking them */
+    height:90%;
+    width:90%;
   }
 }
 </style>
